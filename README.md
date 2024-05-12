@@ -76,6 +76,8 @@ python util_aboutrabbit.py
 pip list
 ```
 
+Note: This failed on machine I'm running on an array so location of the program is more complex. Will alter to make work later with notes. 
+
 ![verifying setup](./images/verify-setup.png)
 
 
