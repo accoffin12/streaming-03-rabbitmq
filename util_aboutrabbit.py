@@ -60,15 +60,15 @@ def get_choco_rabbitmq_path():
     """Find the path of RabbitMQ installation by Chocolatey."""
     # Define the general directory where Chocolatey installs software
     # Use a raw string to avoid issues with backslashes (preface with r)
-    base_choco_dir = r"C:\ProgramData\chocolatey\lib\rabbitmq\tools"
+    base_dir = "C:\Program Files"
 
     # Check if the base choco directory exists
-    if os.path.exists(base_choco_dir):
+    if os.path.exists(base_dir):
         # List all folders in the directory
-        folders = os.listdir(base_choco_dir)
+        folders = os.listdir(base_dir)
 
         # Find folders starting with 'rabbitmq_server'
-        rabbitmq_folders = [f for f in folders if f.startswith("rabbitmq_server")]
+        rabbitmq_folders = [f for f in folders if f.startswith("RabbitMQ Server")]
 
         # Sort them to get the latest version (assuming version numbers are used in the naming)
         rabbitmq_folders.sort(reverse=True)
@@ -76,7 +76,7 @@ def get_choco_rabbitmq_path():
         # Get the path of the latest version
         if rabbitmq_folders:
             latest_version_path = os.path.join(
-                base_choco_dir, rabbitmq_folders[0], "sbin"
+                base_dir, rabbitmq_folders[0], "sbin"
             )
             # Return the path if it exists
             if os.path.exists(latest_version_path):

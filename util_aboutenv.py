@@ -79,7 +79,7 @@ def check_for_dotvenv_folder():
 
 def check_dotvenv_is_active():
     """Checks if the .venv virtual environment is active."""
-    venv_path = os.environ.get("VIRTUAL_ENV")
+    venv_path = os.environ.get(".venv")
 
     if venv_path and ".venv" in venv_path:
         error_code = 0
