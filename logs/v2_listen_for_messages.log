@@ -8,3 +8,5 @@
 2024-05-15 11:44:14,702.v2_listen_for_messages.INFO  [*] Waiting for messages. To exit press CTRL+C
 2024-05-15 11:44:29,711.v2_listen_for_messages.WARNING User interrupted the listening process.
 2024-05-15 11:2024-05-15 11:46:01,978.v2_listen_for_messages.INFO Received: Oh hey, it works! We did it... where's my cup of coffee??
+2024-05-15 11:57:16,237.v2_listen_for_messages.WARNING User interrupted the listening process.
+2024-05-15 11:57:16,239.v2_listen_for_messages.INFO Closing connection. Goodbye.

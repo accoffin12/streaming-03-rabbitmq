@@ -1,5 +1,8 @@
 """
-
+A. Coffin
+Modified: 15 May 2024
+Modifications: Corrected errors, and changed queue_name to match emiting script.
+---
 Message listener 
 
 Description:

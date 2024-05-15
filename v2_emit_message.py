@@ -1,5 +1,8 @@
 """
-
+A. Coffin
+Modified: 15 May 2024
+Modifications: Corrected errors, changed message, assigned queue name, changed routing_key
+---
 Message sender / emitter 
 
 Description:
