@@ -1,7 +1,8 @@
-2024-05-15 10:33:33,117.v2_emit_message.INFO ==================================================
-2024-05-15 10:33:33,117.v2_emit_message.INFO Today is 2024-05-15 at 10:33 AM
-2024-05-15 10:33:33,117.v2_emit_message.INFO Running on: nt Windows 10
-2024-05-15 10:33:33,118.v2_emit_message.INFO Python version:  3.11.4
-2024-05-15 10:33:33,118.v2_emit_message.INFO Python path: C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-03-rabbitmq\.venv
-2024-05-15 10:33:33,118.v2_emit_message.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-03-rabbitmq
-2024-05-15 10:33:33,119.v2_emit_message.INFO ==================================================
+2024-05-15 11:46:00,938.v2_emit_message.INFO ==================================================
+2024-05-15 11:46:00,939.v2_emit_message.INFO Today is 2024-05-15 at 11:46 AM
+2024-05-15 11:46:00,939.v2_emit_message.INFO Running on: nt Windows 10
+2024-05-15 11:46:00,940.v2_emit_message.INFO Python version:  3.11.4
+2024-05-15 11:46:00,940.v2_emit_message.INFO Python path: C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-03-rabbitmq\.venv
+2024-05-15 11:46:00,941.v2_emit_message.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-03-rabbitmq
+2024-05-15 11:46:00,942.v2_emit_message.INFO ==================================================
+2024-05-15 11:46:01,977.v2_emit_message.INFO  [x] Sent Oh hey, it works! We did it... where's my cup of coffee??

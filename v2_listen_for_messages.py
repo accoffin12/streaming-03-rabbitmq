@@ -51,20 +51,20 @@ def process_message(ch, method, properties, body):
 # define a main function to run the program
 # pass in the hostname as a string parameter if you like
 # if no argument is provided, set a default value to localhost
-def main(hn: str = "localhosttt"):
+def main(hn: str = "localhost"):
     """Main program entry point."""
 
     # when a statement can go wrong, use a try-except block
     try:
         # try this code, if it works, keep going
         # create a blocking connection to the RabbitMQ server
-        connection = pika.BlockingConnection(pika.ConnectionParameters(host=hn))
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host="localhost"))
 
     # except, if there's an error, do this
     except Exception as e:
         logger.error()
         logger.error("ERROR: connection to RabbitMQ server failed.")
-        logger.error(f"Verify the server is running on host={hn}.")
+        logger.error(f"Verify the server is running on host={connection}.")
         logger.error(f"The error says: {e}")
         logger.error()
         sys.exit(1)
@@ -74,12 +74,12 @@ def main(hn: str = "localhosttt"):
         channel = connection.channel()
 
         # use the channel to declare a queue
-        channel.queue_declare(queue="hello")
+        channel.queue_declare(queue="v2_task")
 
         # use the channel to consume messages from the queue
         # on getting a message, execute the login in the callback function
         channel.basic_consume(
-            queue="hello", on_message_callback=process_message, auto_ack=True
+            queue="v2_task", on_message_callback=process_message, auto_ack=True
         )
 
         # print a message to the console for the user

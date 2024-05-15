@@ -1,0 +1,10 @@
+2024-05-15 11:44:14,647.v2_listen_for_messages.INFO ==================================================
+2024-05-15 11:44:14,648.v2_listen_for_messages.INFO Today is 2024-05-15 at 11:44 AM
+2024-05-15 11:44:14,648.v2_listen_for_messages.INFO Running on: nt Windows 10
+2024-05-15 11:44:14,649.v2_listen_for_messages.INFO Python version:  3.11.4
+2024-05-15 11:44:14,650.v2_listen_for_messages.INFO Python path: C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-03-rabbitmq\.venv
+2024-05-15 11:44:14,650.v2_listen_for_messages.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-03-rabbitmq
+2024-05-15 11:44:14,651.v2_listen_for_messages.INFO ==================================================
+2024-05-15 11:44:14,702.v2_listen_for_messages.INFO  [*] Waiting for messages. To exit press CTRL+C
+2024-05-15 11:44:29,711.v2_listen_for_messages.WARNING User interrupted the listening process.
+2024-05-15 11:2024-05-15 11:46:01,978.v2_listen_for_messages.INFO Received: Oh hey
