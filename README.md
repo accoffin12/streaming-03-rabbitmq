@@ -17,6 +17,8 @@ We create the environment as a subfolder of this repo named .venv to keep it awa
 In order to fully understand this repository please read through the tutorials offered on the RabbitMQ page. These will provide an outline and explination into the different features, functions and calls that are required to run RabbitMQ. 
 RabbitMQ Tutorials: [RabbitMQ Hello World! tutorial](https://www.rabbitmq.com/tutorials/tutorial-one-python.html)
 
+**Taditionally Log files are not uplaoded to GitHub, however, as this is a streaming project these logs have been left as a way to demonstrate the success of the project.** 
+
 # Table of Contents:
 * [Machine Specs and Terminal Information](Machine_Specs_and_Terminal_Information)
 * [Prerequisites](Prerequisites)
@@ -30,8 +32,8 @@ RabbitMQ Tutorials: [RabbitMQ Hello World! tutorial](https://www.rabbitmq.com/tu
     - [5. Execute the Producer/Sender](5._Execute_the_Producer/Sender)
     - [6. Execute the Consumer/Listener](6._Execute_the_Consumer/Listener)
     - [7. Open a New Terminal / Emit More Messages](7._Open_a_New_Terminal_/_Emit_More_Messages)
-    - [8. Save Time & Effort: Don't Repeat Yourself](8._Save_Time_&_Effort:_Don't_Repeat_Yourself)
-    - [Version 2](Version_2)
+    - [8. Save Time & Effort: Don't Repeat Yourself](8._Save_Time_&_Effort:_Don't_Repeat_Yourselff)
+    - [9. Version 2](9._Version_2)
 
 
 
@@ -169,6 +171,7 @@ As long as the process is running the terminal can not be used for other command
 2. Use this new window to run emit_message.py again.
 3. Watch the listing terminal - what do you see?  A second message?
 
+### Results:
 ![3 Terminals running 1 emit_send and 2 listen_recieve](/ProjectScreenShots/v1RunMultiTeminals.PNG "v1 Running with Multiple Terminals")
 
 The second message that can be seen is a waiting message, as the script emit_send.py only contains a single message and routing key. Meaning that even though we have sent a message using terminal 1, we did not send a fanout message - which ignores these keys. Instead the message was direct and recieved by the intended queue - terminal 2. Therefore Terminal 3 will wait until Terminal 1 has run the script again to send the message. 
@@ -183,7 +186,14 @@ Sending the same message each time is kind of boring. This time:
 Repeat this process several times - emit at least 4 different messages.
 Don't worry - it's just code. We can always revert back (try the 'undo' command in VS Code) to a version that works. You can't hurt anything. 
 
-While maintaing the origianl queues and terminal any message that's modified within this specific script will send to the original pair of terminals meaning. Even though the contents of the message are different each time, and alterations to the body have to be done - so long as the recieving queues have the same key then the message will be recieved on these queues.
+### Results:
+The message is defined in several places, the first being `body=""` and the second is actually where we instruct the script to write a message in the consol, line 23 which is:
+```
+print(" [x] Sent 'Hello World!'")"
+```
+ While maintaing the origianl queues and terminal any message that's modified within this specific script will send to the original pair of terminals meaning. Even though the contents of the message are different each time, and alterations to the body have to be done - so long as the recieving queues have the same key then the message will be recieved on these queues. 
+ 
+ This is explored more when examining v2_emit_message.py.
 
 ## 8. Save Time & Effort: Don't Repeat Yourself
 
@@ -198,8 +208,11 @@ Did you notice you had to change the message in TWO places?
 Now, to send a new message, you'll only make ONE change.
 Updating and improving code is called 'refactoring'. 
 Use your skills to keep coding enjoyable. 
+This can also be observed in the attached logs folder within this repository.
 
-# Version 2
+
+
+# 9. Version 2
 
 Now look at the second version of each file.
 These include more graceful error handling,
@@ -207,21 +220,33 @@ and a consistent, reusable approach to building code.
 
 Each of the version 2 programs include an error as well. 
 
+
 1. Find the error and fix it. 
-1. Compare the structure of the version 2 files. 
-1. Modify the docstrings on all your files.
-1. Include your name and the date.
-1. Imports always go at the top, just after the file docstring.
-1. Imports should be one per line - why?
-1. Then, define your functions.
-1. Functions are reusable logic blocks.
-1. Everything the function needs comes in through the arguments.
-1. A function may - or may not - return a value. 
-1. When we open a connection, we should close the connection. 
-1. Which of the 4 files will always close() the connection?
-1. Search GitHub for if __name__ == "__main__":
-1. How many hits did you get? 
-1. Learn and understand this common Python idiom.
+2. Compare the structure of the version 2 files. 
+3. Modify the docstrings on all your files.
+4. Include your name and the date.
+5. Imports always go at the top, just after the file docstring.
+7. Then, define your functions.
+8. Functions are reusable logic blocks.
+9. Everything the function needs comes in through the arguments.
+10. A function may - or may not - return a value. 
+11. When we open a connection, we should close the connection.  
+12. Learn and understand this common Python idiom.
+
+### Results and Coding Tips:
+After fixing both v2_emit_message.py and v2_listen_for_messages.py, both were run in multiple times. With each time the message was changed and the number of terminals was also changed. For runs 2 and 3 there is a single terminal emitting the message and 2 set up to recieve the message. Each of these runs has a corresponding screen shot found within the [ProjectScreenShots Folder](/ProjectScreenShots/). The log from these runs has also been added to the repository as verification that the terminals were working properly.
+
+The last run:
+![v2Mod2R3TCoffee](/ProjectScreenShots/v2Mod2R3TCoffee.PNG "Final Shot of v2 run with coffee message - I still can't find that cup by the way.")
+
+
+#### Coding Tips:
+When writing out imports, keep these as individual lines - similar to a grocery list. This is done for two major reasons, the first is that it makes code readable. Readablility gives those exicuting or examining it the ability to note each of the libaries required or even if the script requires another python script to be brought in from a different location in the repository. Additionally by creating a "Grocery List" it improves the maintainability of the code, especially when there is more than one developer on the project. 
+
+Closing connections is important, espeically when dealing with servers and streaming data. If a server isn't told to close a connection it will continue to consume CPU space, which can lead to disasterous consiquences. It can be even more irritating if a connection is left open while attempting to shutdown a computer. Be sure when writing a consumer/listener script that the line `conn.closed()` or `connection.closed()` is included. 
+
+`__name__ == "__main__"` is a top-level code enviroment of the program, which enables developers to determine how a user interacts with modules, as well as how they interact together. Basically this code is the first users-specified Python module that starts running, meaning that it imports all other modules that the program needs. This particular one is a boilerplate code, its designed to check its own `__name__`, creating a common idiom, conditionally executing code when the module is not initialized from an import statement. By doing this it prevents us from pulling from the wrong module, forcing us to parse commandline arguments or fetch data from a standard input. The code in this block will not run unless the top-level enviroment module is executed. 
+
 
 ## Reference
 
@@ -230,5 +255,6 @@ Each of the version 2 programs include an error as well.
 - [RabbitMQ Get Started](https://www.rabbitmq.com/#getstarted)
 - [Pika GitHub Repo](https://github.com/pika/pika)
 - [Pika Documentation](https://pika.readthedocs.io/en/stable/)
+- [Python Documentation Library for Top-Level Enviroments](https://docs.python.org/3/library/__main__.html)
 
 ![Exploring the local virtual environment folder](./images/exploring_dot_venv.PNG)
