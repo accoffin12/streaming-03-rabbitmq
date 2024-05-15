@@ -1,6 +1,7 @@
 """
     This program sends a message to a queue on the RabbitMQ server.
-
+    Be sure that the RabbitMQ service is on and connected. 
+    Run this first, then run v1_listern_for_messages.py.
 """
 
 # add imports at the beginning of the file

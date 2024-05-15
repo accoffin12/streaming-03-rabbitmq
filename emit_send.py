@@ -1,5 +1,6 @@
 # See Hello World! Example at
 # https://www.rabbitmq.com/tutorials/tutorial-one-python.html
+# Note: Make sure that RabbitMQ is started and running. While it may perform processes in the background it must be turned on for this to work.
 
 import pika
 
